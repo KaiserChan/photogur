@@ -14,5 +14,6 @@ class Picture < ApplicationRecord
 
  def self.pictures_created_in_year(year)
    Picture.where("created_at = ?", year)
+ end
 
 end
