@@ -2,6 +2,16 @@
 
 <%= link_to("Back to Pictures", "/pictures") %>
 
+<% if @picture.errors.any? %>
+  <h2>The following error(s) occurred:</h2>
+  <ul>
+    <% @picture.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+
 <%= form_for(@picture) do |f| %>
 
   <p>
