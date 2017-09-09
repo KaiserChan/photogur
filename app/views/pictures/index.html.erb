@@ -10,6 +10,8 @@
 <h1>Most recent pictures</h1>
 <ul>
   <% @most_recent_pictures.each do |picture| %>
-    <li><%= picture.title %></li>
+    <li>Title: <%= picture.title %></li>
+    <li>Artist: <%= picture.artist %></li>
+    <p><%= image_tag(picture.url) %></p>
   <% end %>
 </ul>
