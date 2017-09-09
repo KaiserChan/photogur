@@ -1,0 +1,39 @@
+<h1>Sign Up Now!</h1>
+
+<%= link_to("Back to Pictures", "/pictures") %>
+
+<% if @user.errors.any? %>
+  <h2>The following error(s) occurred:</h2>
+  <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+
+<%= form_for(@user) do |f| %>
+
+  <p>
+    <%= f.label :email %>
+    <br>
+    <%= f.text_field :email %>
+  </p>
+
+  <p>
+    <%= f.label :password %>
+    <br>
+    <%= f.text_field :password %>
+  </p>
+
+  <p>
+    <%= f.label :password_confirmation %>
+    <br>
+    <%= f.text_field :password_confirmation %>
+  </p>
+
+  <p>
+    <%= f.submit "Save" %>
+  </p>
+
+<% end %>

@@ -15,4 +15,6 @@ Rails.application.routes.draw do
 
   resources :pictures
 
+  resource :users, only: [:new, :create]
+
 end

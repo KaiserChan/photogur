@@ -27,6 +27,7 @@ class PicturesController < ApplicationController
     @picture.url = params[:picture][:url]
 
     if @picture.save
+      flash[:notice] = "New picture successfully added"
       redirect_to "/pictures"   # <- if picture gets saved, generate a request to "/pictures"
     else
       render :new # <- otherwise render new.html.erb
