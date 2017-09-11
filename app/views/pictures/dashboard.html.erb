@@ -16,9 +16,9 @@
 <%= flash[:notice] %>
 <% end %>
 
-<h2>Most recent pictures (<%= @most_recent_pictures.length %>)</h2>
+<h2>All your pictures (<%= current_user.pictures.length %>)</h2>
 <ul>
-  <% @most_recent_pictures.each do |picture| %>
+  <% current_user.pictures.each do |picture| %>
     <li>Title: <%= link_to(picture.title, picture_path(picture)) %></li>
     <li>Artist: <%= picture.artist %></li>
     <p><%= image_tag(picture.url) %></p>

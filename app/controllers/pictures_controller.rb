@@ -9,6 +9,9 @@ class PicturesController < ApplicationController
     @most_recent_pictures = Picture.most_recent_five
     # @older_than_one_month_pictures = Picture.created_one_month_ago(time)
     @calendar_year_pictures = Picture.pictures_created_in_year(2017)
+    if current_user
+      render :dashboard
+    end
   end
 
   # def index
