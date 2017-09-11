@@ -18,8 +18,4 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def ensure_user_owns_picture
-    #code
-  end
-
 end
