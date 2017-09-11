@@ -1,5 +1,16 @@
 <h1>Log in</h1>
 
+
+<% if flash[:notice] %>
+<%= flash[:notice] %>
+<% end %>
+
+<% if flash[:alert] %>
+<%= flash[:alert] %>
+<% end %>
+
+<br>
+
 <%= form_tag sessions_path do %>
   <div class="field">
     <%= label_tag :email %><br/>
@@ -14,6 +25,6 @@
   </div>
 
   <br>
-  
+
   <div class="actions"><%= submit_tag "Log in" %></div>
 <% end %>

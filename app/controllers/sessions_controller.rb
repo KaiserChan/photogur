@@ -5,11 +5,19 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by(email: params[:email])
+
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to root_path, notice: "Logged in!"
+      if session[:redirect_url]
+        redirect_url = session[:redirect_url]
+        session[:redirect_url] = nil
+        redirect_to redirect_url
+      else
+        redirect_to root_path, notice: "Logged in!"
+      end
     else
-      render "new"
+      flash.now[:alert] = ["Login failed, name and/or password are incorrect"]
+      render :new
     end
   end
 
